@@ -1,11 +1,17 @@
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+from imblearn.over_sampling import SMOTE
+import joblib
+from collections import Counter # For confirming balance
 
 def train_model(X, y):
-    
+
+    sm = SMOTE(random_state=42)
+    X_resampled, y_resampled = sm.fit_resample(X, y)
+
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42, stratify=y
+        X_resampled, y_resampled, test_size=0.2, random_state=42, stratify=y_resampled
     )
 
     model = RandomForestClassifier(n_estimators=100, random_state=42)
