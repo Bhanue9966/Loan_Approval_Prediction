@@ -1,9 +1,3 @@
-The structure of tables and code blocks in a `README.md` file often gets shuffled if the surrounding Markdown isn't strictly compliant, or if there are unexpected characters.
-
-The most common culprit for table shuffling is **improper alignment of columns and missing pipe (`|`) characters**. To ensure maximum compatibility and stability, I'll provide the content with **strict Markdown formatting** and use **HTML comments** for notes, which Git and GitHub render reliably.
-
-Here is the entire detailed content, structured to preserve its format, especially the tables and code blocks:
-
 -----
 
 # 🏦 Loan Approval Prediction Engine: A Modular Machine Learning Solution
