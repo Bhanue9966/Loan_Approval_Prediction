@@ -1,5 +1,3 @@
-# preprocessor.py - FINAL CORRECTED CODE (Manual Target Mapping)
-
 from sklearn.preprocessing import LabelEncoder
 
 def preprocess_data(df):
@@ -10,7 +8,7 @@ def preprocess_data(df):
     # Drop the loan_id column
     df = df.drop('loan_id', axis=1)
 
-    # *** STEP 1: Strip leading/trailing spaces from ALL categorical values ***
+    # Strip leading/trailing spaces from ALL categorical values
     df['education'] = df['education'].str.strip()
     df['self_employed'] = df['self_employed'].str.strip()
     df['loan_status'] = df['loan_status'].str.strip()

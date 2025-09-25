@@ -1,5 +1,3 @@
-# data_loader.py
-
 import pandas as pd
 import warnings
 warnings.filterwarnings("ignore", category=pd.errors.DtypeWarning)

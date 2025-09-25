@@ -3,12 +3,12 @@ import numpy as np
 import pandas as pd
 import joblib # Used for saving/loading scikit-learn models and encoders
 
-# --- Configuration ---
+# Configuration
 MODEL_PATH = 'random_forest_model.joblib'
 LE_EDUCATION_PATH = 'le_education.joblib'
 LE_SELF_EMPLOYED_PATH = 'le_self_employed.joblib'
 
-# --- Load Assets ---
+# Load Assets
 @st.cache_resource # Cache the model and encoders so they load once
 def load_assets():
     try:
@@ -60,8 +60,7 @@ if model and le_education and le_self_employed:
 
     # --- Prediction Logic ---
     if st.button('Predict Loan Status'):
-        # 1. Replicate Preprocessing
-        
+    
         # Calculate Total Assets
         total_assets_value = (
             residential_assets_value + 
@@ -73,8 +72,6 @@ if model and le_education and le_self_employed:
         # Encode categorical inputs
         education_encoded = le_education.transform([education])[0]
         self_employed_encoded = le_self_employed.transform([self_employed])[0]
-        
-        # --- ROBUST FIX: DEFINE AND USE EXPLICIT COLUMN ORDER ---
         
         # List of features in the EXACT order the model was trained on
         feature_columns = [
